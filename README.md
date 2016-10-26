@@ -1,9 +1,8 @@
-# NetologyXP.TDDKata
+# NetologyXP.TDD Domain
 * Практические занятия по TDD (курс Нетологии http://netology.ru/programs/xp)
-* Лекция 1: TDD Kata
+* Лекция 2: TDD Domain
 
 
 ## План
-* что такое TDD
-* Red-Green-Refactor
-* Практика
+* Как TDD помогает строить новый домен?
+* Практика, практика, практика, много практики
