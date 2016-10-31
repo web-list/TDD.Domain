@@ -97,6 +97,21 @@ suite("cinema tests", function() {
             assert.equal(sum, 1200);
         });
 
+        test("make 10-percent discount for buying all tickets", function() {
+
+            let count = 295;
+            let film = "Iron Man";
+            let tickets = cinema.askTickets(count, film);
+
+            let sum = 0;
+            for (let i in tickets) {
+                sum += tickets[i].price;
+            }
+
+            assert.equal(sum, 295 * 100 * 0.9);
+
+        });
+
         teardown(function(){
 
         });

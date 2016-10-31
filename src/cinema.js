@@ -32,6 +32,13 @@ export class Cinema {
             }
         }
 
+        if (tickets.length == this.capacity) {
+            console.log("check");
+            for (let i in tickets) {
+                tickets[i].price = 0.9 * tickets[i].price;
+            }
+        }
+
         return tickets;
     }
 }
@@ -47,5 +54,9 @@ export class Ticket {
 
     get price() {
         return this._data.price;
+    }
+
+    set price(value) {
+        this._data.price = value;
     }
 }
