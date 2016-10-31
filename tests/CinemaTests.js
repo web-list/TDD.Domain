@@ -10,6 +10,7 @@ suite("cinema tests", function() {
         setup(function() {
             cinema = new Cinema({
                 availableFilms: ["Iron Man", "Interstellar"],
+                capacity: 295,
             });
         });
 
@@ -50,6 +51,15 @@ suite("cinema tests", function() {
             let film = "Snowden";
             let tickets = cinema.askTickets(count, film);
             assert.equal(tickets.length, 0);
+        });
+
+        test("customer ask 300 tickets - more then cinema capacity", function() {
+
+            let count = 300;
+            let film = "Iron Man";
+            let tickets = cinema.askTickets(count, film);
+            assert.equal(tickets.length, cinema.capacity);
+
         });
 
         teardown(function(){
