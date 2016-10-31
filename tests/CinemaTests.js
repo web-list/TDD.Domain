@@ -1,13 +1,13 @@
 import assert from 'assert';
 import {Cinema} from '../src/cinema';
 
-suite("cinema tests", function() {
+suite("cinema tests", function () {
 
-    suite("customer ask cashier some tickets to film", function() {
+    suite("customer ask cashier some tickets to film", function () {
 
         let cinema;
 
-        setup(function() {
+        setup(function () {
             cinema = new Cinema({
                 availableFilms: ["Iron Man", "Interstellar"],
                 capacity: 295,
@@ -15,22 +15,22 @@ suite("cinema tests", function() {
             });
         });
 
-        suite("parameter film is not important", function() {
-            test("customer ask one ticket", function() {
+        suite("parameter film is not important", function () {
+            test("customer ask one ticket", function () {
                 let count = 1;
                 let tickets = cinema.askTickets(count);
                 assert.equal(tickets.length, 1);
             });
 
-            test("customer ask 5 tickets", function() {
+            test("customer ask 5 tickets", function () {
                 let count = 5;
                 let tickets = cinema.askTickets(count);
                 assert.equal(tickets.length, 5);
             });
         });
 
-        suite("available films", function() {
-            test("customer ask tickets to Iron Man", function() {
+        suite("available films", function () {
+            test("customer ask tickets to Iron Man", function () {
                 let count = 3;
                 let film = "Iron Man";
                 let tickets = cinema.askTickets(count, film);
@@ -40,7 +40,7 @@ suite("cinema tests", function() {
                 }
             });
 
-            test("customer ask tickets to Interstellar", function() {
+            test("customer ask tickets to Interstellar", function () {
                 let count = 2;
                 let film = "Interstellar";
                 let tickets = cinema.askTickets(count, film);
@@ -50,8 +50,8 @@ suite("cinema tests", function() {
                 }
             });
 
-            suite("required count more cinema capacity", function() {
-                test("customer ask 300 tickets - more then cinema capacity", function() {
+            suite("required count more cinema capacity", function () {
+                test("customer ask 300 tickets - more then cinema capacity", function () {
 
                     let count = 300;
                     let film = "Iron Man";
@@ -63,8 +63,8 @@ suite("cinema tests", function() {
 
         });
 
-        suite("unavailable films", function() {
-            test("customer ask tickets to unavailable film Snowden", function() {
+        suite("unavailable films", function () {
+            test("customer ask tickets to unavailable film Snowden", function () {
                 let count = 5;
                 let film = "Snowden";
                 let tickets = cinema.askTickets(count, film);
@@ -72,47 +72,52 @@ suite("cinema tests", function() {
             });
         });
 
-        test("price of 4 tickets is 400 rub", function() {
-            let count = 4;
-            let tickets = cinema.askTickets(count);
+        suite("common prices", function () {
+            test("price of 4 tickets is 400 rub", function () {
+                let count = 4;
+                let tickets = cinema.askTickets(count);
 
-            let sum = 0;
-            for (let i in tickets) {
-                sum += tickets[i].price;
-            }
+                let sum = 0;
+                for (let i in tickets) {
+                    sum += tickets[i].price;
+                }
 
-            assert.equal(sum, 400);
+                assert.equal(sum, 400);
+            });
+
+            test("price of 10 tickets to Interstellar is 1200 rub", function () {
+                let count = 10;
+                let film = "Interstellar";
+                let tickets = cinema.askTickets(count, film);
+
+                let sum = 0;
+                for (let i in tickets) {
+                    sum += tickets[i].price;
+                }
+
+                assert.equal(sum, 1200);
+            });
         });
 
-        test("price of 10 tickets to Interstellar is 1200 rub", function() {
-            let count = 10;
-            let film = "Interstellar";
-            let tickets = cinema.askTickets(count, film);
+        suite("has discount", function () {
 
-            let sum = 0;
-            for (let i in tickets) {
-                sum += tickets[i].price;
-            }
+            test("make 10-percent discount for buying all tickets", function () {
 
-            assert.equal(sum, 1200);
+                let count = 295;
+                let film = "Iron Man";
+                let tickets = cinema.askTickets(count, film);
+
+                let sum = 0;
+                for (let i in tickets) {
+                    sum += tickets[i].price;
+                }
+
+                assert.equal(sum, 295 * 100 * 0.9);
+
+            });
         });
 
-        test("make 10-percent discount for buying all tickets", function() {
-
-            let count = 295;
-            let film = "Iron Man";
-            let tickets = cinema.askTickets(count, film);
-
-            let sum = 0;
-            for (let i in tickets) {
-                sum += tickets[i].price;
-            }
-
-            assert.equal(sum, 295 * 100 * 0.9);
-
-        });
-
-        teardown(function(){
+        teardown(function () {
 
         });
 
