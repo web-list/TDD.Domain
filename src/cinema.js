@@ -20,7 +20,8 @@ export class Cinema {
         if (this.availableFilms.indexOf(film) != -1) {
             for (let i=0; i++<count;) {
                 tickets.push(new Ticket({
-                    film: film
+                    film: film,
+                    price: 100
                 }));
             }
         }
@@ -36,5 +37,9 @@ export class Ticket {
 
     get film() {
         return this._data.film;
+    }
+
+    get price() {
+        return this._data.price;
     }
 }

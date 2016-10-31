@@ -71,6 +71,18 @@ suite("cinema tests", function() {
             });
         });
 
+        test("price of 4 tickets is 400 rub", function() {
+            let count = 4;
+            let tickets = cinema.askTickets(count);
+
+            let sum = 0;
+            for (let i in tickets) {
+                sum += tickets[i].price;
+            }
+
+            assert.equal(sum, 400);
+        });
+
         teardown(function(){
 
         });
