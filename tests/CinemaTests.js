@@ -11,6 +11,7 @@ suite("cinema tests", function() {
             cinema = new Cinema({
                 availableFilms: ["Iron Man", "Interstellar"],
                 capacity: 295,
+                prices: [100, 120],
             });
         });
 
@@ -81,6 +82,19 @@ suite("cinema tests", function() {
             }
 
             assert.equal(sum, 400);
+        });
+
+        test("price of 10 tickets to Interstellar is 1200 rub", function() {
+            let count = 10;
+            let film = "Interstellar";
+            let tickets = cinema.askTickets(count, film);
+
+            let sum = 0;
+            for (let i in tickets) {
+                sum += tickets[i].price;
+            }
+
+            assert.equal(sum, 1200);
         });
 
         teardown(function(){
