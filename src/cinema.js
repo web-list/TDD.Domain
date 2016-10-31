@@ -17,4 +17,8 @@ export class Ticket {
     constructor(data) {
         this._data = data;
     }
+
+    get film() {
+        return "Iron Man";
+    }
 }
