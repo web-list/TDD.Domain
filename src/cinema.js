@@ -33,7 +33,6 @@ export class Cinema {
         }
 
         if (tickets.length == this.capacity) {
-            console.log("check");
             for (let i in tickets) {
                 tickets[i].price = 0.9 * tickets[i].price;
             }
