@@ -17,6 +17,12 @@ suite("cinema tests", function() {
             assert.equal(tickets.length, 1);
         });
 
+        test("customer ask 5 tickets", function() {
+            let count = 5;
+            let tickets = cinema.askTickets(count);
+            assert.equal(tickets.length, 5);
+        });
+
         teardown(function(){
 
         });

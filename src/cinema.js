@@ -3,9 +3,18 @@ export class Cinema {
         this._data = data;
     }
 
-    askTickets() {
-        return [{
+    askTickets(count) {
+        let tickets = [];
+        for (let i=0; i++<count;) {
+            tickets.push(new Ticket());
+        }
 
-        }];
+        return tickets;
+    }
+}
+
+export class Ticket {
+    constructor(data) {
+        this._data = data;
     }
 }
