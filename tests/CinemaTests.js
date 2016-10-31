@@ -8,7 +8,9 @@ suite("cinema tests", function() {
         let cinema;
 
         setup(function() {
-            cinema = new Cinema({});
+            cinema = new Cinema({
+                availableFilms: ["Iron Man", "Interstellar"],
+            });
         });
 
         test("customer ask one ticket", function() {
@@ -41,6 +43,13 @@ suite("cinema tests", function() {
             for (let i in tickets) {
                 assert.equal(tickets[i].film, film);
             }
+        });
+
+        test("customer ask tickets to unavailable film Snowden", function() {
+            let count = 5;
+            let film = "Snowden";
+            let tickets = cinema.askTickets(count, film);
+            assert.equal(tickets.length, 0);
         });
 
         teardown(function(){
