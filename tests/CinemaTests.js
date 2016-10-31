@@ -33,6 +33,16 @@ suite("cinema tests", function() {
             }
         });
 
+        test("customer ask tickets to Interstellar", function() {
+            let count = 2;
+            let film = "Interstellar";
+            let tickets = cinema.askTickets(count, film);
+
+            for (let i in tickets) {
+                assert.equal(tickets[i].film, film);
+            }
+        });
+
         teardown(function(){
 
         });

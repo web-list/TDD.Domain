@@ -3,10 +3,12 @@ export class Cinema {
         this._data = data;
     }
 
-    askTickets(count) {
+    askTickets(count, film) {
         let tickets = [];
         for (let i=0; i++<count;) {
-            tickets.push(new Ticket());
+            tickets.push(new Ticket({
+                film: film
+            }));
         }
 
         return tickets;
@@ -19,6 +21,6 @@ export class Ticket {
     }
 
     get film() {
-        return "Iron Man";
+        return this._data.film;
     }
 }
