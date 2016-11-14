@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register --ui tdd tests/*Tests.js"
+    "test": "mocha --compilers js:babel-core/register --ui tdd tests/CinemaTests.js"
   },
   "devDependencies": {
     "mocha": "~2.4.5",
