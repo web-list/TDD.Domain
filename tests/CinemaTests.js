@@ -16,12 +16,17 @@ suite("cinema tests", function () {
         });
 
         suite("parameter film is not important", function () {
+
+            // антипаттерн - неверное название теста
+            // название не содержит assert
             test("customer ask one ticket", function () {
                 let count = 1;
                 let tickets = cinema.askTickets(count);
                 assert.equal(tickets.length, 1);
             });
 
+            // антипаттерн - неверное название теста
+            // название не содержит assert
             test("customer ask 5 tickets", function () {
                 let count = 5;
                 let tickets = cinema.askTickets(count);
@@ -35,6 +40,8 @@ suite("cinema tests", function () {
                 let film = "Iron Man";
                 let tickets = cinema.askTickets(count, film);
 
+                // антипаттерн - несколько причин для падения
+                // так как assert в цикле
                 for (let i in tickets) {
                     assert.equal(tickets[i].film, film);
                 }
@@ -45,6 +52,8 @@ suite("cinema tests", function () {
                 let film = "Interstellar";
                 let tickets = cinema.askTickets(count, film);
 
+                // антипаттерн - несколько причин для падения
+                // так как assert в цикле
                 for (let i in tickets) {
                     assert.equal(tickets[i].film, film);
                 }
@@ -107,6 +116,8 @@ suite("cinema tests", function () {
                 let film = "Iron Man";
                 let tickets = cinema.askTickets(count, film);
 
+                // антипаттерн - дополнительные вычисления в тестах
+                // необходимо вынести все вычисления из тестов
                 let sum = 0;
                 for (let i in tickets) {
                     sum += tickets[i].price;
