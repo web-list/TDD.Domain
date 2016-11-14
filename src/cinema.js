@@ -56,6 +56,6 @@ export class Ticket {
     }
 
     set price(value) {
-        this.data.price = value;
+        this._data.price = value;
     }
 }
