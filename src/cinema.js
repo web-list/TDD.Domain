@@ -15,6 +15,16 @@ export class Cinema {
         return this._data.prices;
     }
 
+    getPrice(film) {
+
+        let index;
+        for (let i in this._data.availableFilms) {
+            if (this._data.availableFilms[i] == film) index = i;
+        }
+
+        return this._data.prices[index];
+    }
+
     askTickets(count, film) {
         let tickets = [];
 
